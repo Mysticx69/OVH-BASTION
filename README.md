@@ -1,13 +1,22 @@
-- [1. Requirements](#1-requirements)
-- [2. Providers](#2-providers)
-- [3. Modules](#3-modules)
-- [4. Resources](#4-resources)
-- [5. Inputs](#5-inputs)
-- [6. Outputs](#6-outputs)
+- [1. Overview](#1-overview)
+- [Quick start](#quick-start)
+- [2. Requirements](#2-requirements)
+- [3. Providers](#3-providers)
+- [4. Modules](#4-modules)
+- [5. Resources](#5-resources)
+- [6. Inputs](#6-inputs)
+- [7. Outputs](#7-outputs)
 
+
+## 1. Overview
+
+Ce projet a pour but de déployer une infra fonctionnelle ainsi qu'un bastion dans le cloud provider OVH en respectant les best practices d'un point de vue configuration et sécurité. 
+
+
+## Quick start
 
 <!-- BEGIN_TF_DOCS -->
-## 1. Requirements
+## 2. Requirements
 
 | Name | Version |
 |------|---------|
@@ -16,19 +25,18 @@
 | <a name="requirement_ovh"></a> [ovh](#requirement\_ovh) | ~> 0.49.0 |
 | <a name="requirement_vault"></a> [vault](#requirement\_vault) | ~> 4.4.0 |
 
-## 2. Providers
+## 3. Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_openstack"></a> [openstack](#provider\_openstack) | 2.1.0 |
 | <a name="provider_ovh"></a> [ovh](#provider\_ovh) | 0.49.0 |
-| <a name="provider_vault"></a> [vault](#provider\_vault) | 4.4.0 |
 
-## 3. Modules
+## 4. Modules
 
 No modules.
 
-## 4. Resources
+## 5. Resources
 
 | Name | Type |
 |------|------|
@@ -42,15 +50,16 @@ No modules.
 | [ovh_cloud_project_gateway.sah_gateway](https://registry.terraform.io/providers/ovh/ovh/latest/docs/resources/cloud_project_gateway) | resource |
 | [ovh_cloud_project_network_private.sah_net](https://registry.terraform.io/providers/ovh/ovh/latest/docs/resources/cloud_project_network_private) | resource |
 | [ovh_cloud_project_network_private_subnet.sah_subnet](https://registry.terraform.io/providers/ovh/ovh/latest/docs/resources/cloud_project_network_private_subnet) | resource |
-| [vault_generic_secret.ovh_credentials](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/data-sources/generic_secret) | data source |
 
-## 5. Inputs
+## 6. Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_vault_token"></a> [vault\_token](#input\_vault\_token) | Hashicorp Vault Token | `string` | n/a | yes |
+| <a name="input_application_key"></a> [application\_key](#input\_application\_key) | Application Key for OVH Cloud API | `string` | n/a | yes |
+| <a name="input_application_secret"></a> [application\_secret](#input\_application\_secret) | Application Secret for OVH Cloud API | `string` | n/a | yes |
+| <a name="input_consumer_key"></a> [consumer\_key](#input\_consumer\_key) | Consumer Key for OVH Cloud API | `string` | n/a | yes |
 
-## 6. Outputs
+## 7. Outputs
 
 No outputs.
 <!-- END_TF_DOCS -->

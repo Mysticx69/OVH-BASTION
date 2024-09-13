@@ -19,3 +19,14 @@ chown ubuntu:ubuntu /home/ubuntu/.ssh/authorized_keys
 
 sudo apt update
 sudo apt upgrade -y
+
+# Configure DNS
+echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolv.conf > /dev/null
+echo "nameserver 8.8.4.4" | sudo tee -a /etc/resolv.conf > /dev/null
+
+# Switch to the ubuntu user
+sudo -i -u ubuntu bash << 'EOF_USER'
+
+# Installation d'Oh My Zsh avec Powerlevel10k sur Ubuntu
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/dyordsabuzo/miscellany/main/tools/omz-p10k-ubuntu-setup.sh)"
+EOF_USER

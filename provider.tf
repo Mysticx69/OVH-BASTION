@@ -19,26 +19,27 @@ terraform {
   }
 }
 
-# Configure the OpenStack provider hosted by OVHcloud
+
 provider "openstack" {
   auth_url = "https://auth.cloud.ovh.net/v3/"
 }
 
-# Configure the Vault provider hosted by Hashicorp
-provider "vault" {
-  address = "http://127.0.0.1:8200"
-  token   = var.vault_token
-}
-
-
-# Fetch all secrets in Hashicorp Vault
-data "vault_generic_secret" "ovh_credentials" {
-  path = "prod-secrets/OVH"
-}
-
 provider "ovh" {
   endpoint           = "ovh-eu"
-  application_key    = data.vault_generic_secret.ovh_credentials.data["application_key"]
-  application_secret = data.vault_generic_secret.ovh_credentials.data["application_secret"]
-  consumer_key       = data.vault_generic_secret.ovh_credentials.data["consumer_key"]
+  application_key    = var.application_key
+  application_secret = var.application_secret
+  consumer_key       = var.consumer_key
 }
+
+
+# # Configure the Vault provider hosted by Hashicorp
+# provider "vault" {
+#   address = "http://127.0.0.1:8200"
+#   token   = var.vault_token
+# }
+
+
+# # Fetch all secrets in Hashicorp Vault
+# data "vault_generic_secret" "ovh_credentials" {
+#   path = "prod-secrets/OVH"
+# }
