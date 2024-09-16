@@ -17,7 +17,6 @@
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 
-test 
 ## 1. Overview
 The aim of this project is to deploy a functional infrastructure as well as a bastion in the cloud provider OVH, in compliance with best practices from a configuration and security point of view.
 
