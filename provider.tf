@@ -11,11 +11,10 @@ terraform {
       source  = "ovh/ovh"
       version = "~> 0.49.0"
     }
-
-    vault = {
-      source  = "hashicorp/vault"
-      version = "~> 4.4.0"
-    }
+    # vault = {
+    #   source  = "hashicorp/vault"
+    #   version = "~> 4.4.0"
+    # }
   }
 }
 
